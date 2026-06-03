@@ -4,9 +4,6 @@
 ![YOLOv8](https://img.shields.io/badge/YOLO-v8-yellow.svg)
 ![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green.svg)
 
-![System Result](result/Result (1).png)
-![System Result](result/Result (4).png)
-![System Result](result/Result (5).png)
 ![System Result](result/line_alert.png)
 
 A real-time AI vision system designed to detect and monitor falling leaves on a pond surface. This project utilizes a GoPro camera for high-quality video capture, YOLOv8 for object detection, and integrates with LINE Notify for smart alerting.
