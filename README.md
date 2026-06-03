@@ -1,35 +1,40 @@
-# 🍃 Automatic Pond Leaf Detection System
+# 🍃 Floating AI Robot for Automatic Pond Leaf Detection
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue.svg)
 ![YOLOv8](https://img.shields.io/badge/YOLO-v8-yellow.svg)
-![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green.svg)
+![Hardware](https://img.shields.io/badge/Hardware-Jetson_Nano%20%7C%20Raspberry_Pi-red.svg)
+![Robotics](https://img.shields.io/badge/Robotics-Floating_Platform%20%7C%20RPLidar-orange.svg)
 
 ![System Result](result/line_alert.png)
 
-A real-time AI vision system designed to detect and monitor falling leaves on a pond surface. This project utilizes a GoPro camera for high-quality video capture, YOLOv8 for object detection, and integrates with LINE Notify for smart alerting.
+A fully integrated **Floating Robotic Platform** equipped with a real-time AI vision system to monitor and detect falling leaves on a water surface. Designed to prevent water pollution and filter clogging, this system utilizes a GoPro camera, YOLOv8 object detection, and IoT communication for smart alerting.
 
-## ✨ Key Features
+## ✨ Key Features & Workflow
 
-* **Real-time Object Detection:** Leverages **YOLOv8** to identify specific types of leaves commonly found near the pond (e.g., Mango, Tamarind, and Yellow Elder leaves).
-* **Smart Notification System (LINE Notify):**
-  * **Alert Mode:** Sends immediate notifications via LINE when large leaves are detected on the water surface.
-  * **Logging Mode:** Silently records and logs the presence of small leaves without spamming notifications.
-* **Wireless Camera Integration:** Uses a **GoPro** as the primary image sensor, streaming data wirelessly to the processing unit.
-* **Custom Network Architecture:** Implemented **Static Routing** and **IP Forwarding** to establish seamless communication between the GoPro, a Raspberry Pi, and the main processing PC.
+* **Autonomous Floating Platform:** The system is mounted on a robotic platform utilizing a **Jetson Nano** to control movement via 4 water pumps and navigates using an **RPLidar** sensor.
+* **Energy Efficient Monitoring:** Instead of continuous heavy video processing, the GoPro captures and transmits high-quality images every **5 minutes**, significantly reducing computational load and power consumption.
+* **Highly Accurate AI Detection:** Powered by a custom-trained **YOLOv8** model running on Google Colab, achieving an overall accuracy (mAP50) of **84%**.
+* **Smart Notification Logic (LINE Notify):** * **Alert Mode (Large Leaves):** Immediate LINE alerts are triggered when leaves that pose a clogging risk (Mango: 87% accuracy, Yellow Elder: 86% accuracy) are detected.
+  * **Logging Mode (Small Leaves):** Small debris like Tamarind leaves (82% accuracy) are silently logged via a **Custom Tkinter GUI** to prevent alert fatigue.
+* **Sustainable Power System:** Powered by a 12V DC battery with a step-down converter, supplemented by an onboard **Solar Panel** for extended operational time.
 
-## 🛠️ System Architecture & Hardware
+## 🛠️ System Architecture (Hardware & Software)
 
-1. **Camera Input:** GoPro (Wireless Stream)
-2. **Network Hub:** Raspberry Pi (Handles IP Forwarding and routing from GoPro to PC)
-3. **Processing Unit:** PC (Runs Python, OpenCV, and the YOLOv8 inference engine)
-4. **Output/Alert:** LINE Messaging API
+1. **Vision Sensor:** GoPro Hero 11 Black (Captures water surface images).
+2. **Main Hub & Movement Controller:** NVIDIA Jetson Nano.
+3. **IoT Alert Unit:** Raspberry Pi Zero 2W (Handles data buffering and LINE API communication).
+4. **Remote Computing:** Google Colab (Executes the YOLOv8 inference engine).
+5. **Local GUI Interface:** Developed with Custom Tkinter for real-time visual monitoring.
+
+## 📊 Dataset & Model Performance
+* The YOLOv8 model was trained on a custom dataset of **1,000 real-world images**, capturing both dry and fresh leaves under varying lighting conditions, orientations, and water reflections.
+* Peak model accuracy stabilized at **0.837 (84%)** after 100 epochs, demonstrating robust generalization against water ripples and shadows.
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 * Python 3.8+
-* Ultralytics (YOLOv8)
-* OpenCV
+* Ultralytics (YOLOv8), OpenCV, CustomTkinter
 * LINE Notify Token
 
 ### Installation
