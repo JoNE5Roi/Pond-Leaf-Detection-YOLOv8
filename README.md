@@ -38,6 +38,6 @@ A fully integrated **Floating Robotic Platform** equipped with a real-time AI vi
 * LINE Notify Token
 
 ### Installation
-1. Clone this repository:
+Clone this repository:
    ```bash
    git clone [https://github.com/JoNE5Roi/Pond-Leaf-Detection-YOLOv8.git](https://github.com/JoNE5Roi/Pond-Leaf-Detection-YOLOv8.git)
